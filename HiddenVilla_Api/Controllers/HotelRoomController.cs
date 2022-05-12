@@ -31,22 +31,22 @@ namespace HiddenVilla_Api.Controllers
                     ErrorMessage = "All parameters need to be supplied"
                 });
             }
-            if (!DateTime.TryParseExact(checkInDate, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtCheckInDate))
-            {
-                return BadRequest(new ErrorModel()
-                {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    ErrorMessage = "Invalid CheckIn date format. valid format will be MM/dd/yyyy"
-                });
-            }
-            if (!DateTime.TryParseExact(checkOutDate, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtCheckOutDate))
-            {
-                return BadRequest(new ErrorModel()
-                {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    ErrorMessage = "Invalid CheckOut date format. valid format will be MM/dd/yyyy"
-                });
-            }
+            //if (!DateTime.TryParseExact(checkInDate, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtCheckInDate))
+            //{
+            //    return BadRequest(new ErrorModel()
+            //    {
+            //        StatusCode = StatusCodes.Status400BadRequest,
+            //        ErrorMessage = "Invalid CheckIn date format. valid format will be MM/dd/yyyy"
+            //    });
+            //}
+            //if (!DateTime.TryParseExact(checkOutDate, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtCheckOutDate))
+            //{
+            //    return BadRequest(new ErrorModel()
+            //    {
+            //        StatusCode = StatusCodes.Status400BadRequest,
+            //        ErrorMessage = "Invalid CheckOut date format. valid format will be MM/dd/yyyy"
+            //    });
+            //}
 
             var allRooms = await _hotelRoomRepository.GetAllHotelRooms(checkInDate, checkOutDate);
             return Ok(allRooms);
@@ -72,22 +72,22 @@ namespace HiddenVilla_Api.Controllers
                     ErrorMessage = "All parameters need to be supplied"
                 });
             }
-            if (!DateTime.TryParseExact(checkInDate, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtCheckInDate))
-            {
-                return BadRequest(new ErrorModel()
-                {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    ErrorMessage = "Invalid CheckIn date format. valid format will be MM/dd/yyyy"
-                });
-            }
-            if (!DateTime.TryParseExact(checkOutDate, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtCheckOutDate))
-            {
-                return BadRequest(new ErrorModel()
-                {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    ErrorMessage = "Invalid CheckOut date format. valid format will be MM/dd/yyyy"
-                });
-            }
+            //if (!DateTime.TryParseExact(checkInDate, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtCheckInDate))
+            //{
+            //    return BadRequest(new ErrorModel()
+            //    {
+            //        StatusCode = StatusCodes.Status400BadRequest,
+            //        ErrorMessage = "Invalid CheckIn date format. valid format will be MM/dd/yyyy"
+            //    });
+            //}
+            //if (!DateTime.TryParseExact(checkOutDate, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtCheckOutDate))
+            //{
+            //    return BadRequest(new ErrorModel()
+            //    {
+            //        StatusCode = StatusCodes.Status400BadRequest,
+            //        ErrorMessage = "Invalid CheckOut date format. valid format will be MM/dd/yyyy"
+            //    });
+            //}
 
             var roomDetails = await _hotelRoomRepository.GetHotelRoom(roomId.Value, checkInDate, checkOutDate);
             if (roomDetails == null)
